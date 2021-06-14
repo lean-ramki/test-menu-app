@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts"
+    "dev": "set DEBUG=* && ts-node-dev --respawn --pretty --transpile-only src/index.ts",
+    "migrate": "knex migrate:latest",
+    "unmigrate": "knex migrate:rollback",
+    "seed": "knex seed:run "
   },
   "keywords": [],
   "author": "",
@@ -14,7 +17,10 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "helmet": "^4.6.0"
+    "helmet": "^4.6.0",
+    "knex": "^0.95.6",
+    "pg": "^8.6.0",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",

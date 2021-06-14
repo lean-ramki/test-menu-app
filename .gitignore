@@ -1,3 +1,6 @@
 .env
 node_modules
 *.js
+.datadir
+dev.sqlite3
+.DS_Store
