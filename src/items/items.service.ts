@@ -14,6 +14,7 @@ const db = require("../data/db.js");
 const db_table = db('menu_item');
 
 export const findAll = async (): Promise<Item[]> => {
+  console.log("inside findall")
   return db("menu_item"); 
 };
 
@@ -24,9 +25,6 @@ export const find = async (id: number): Promise<Item> => {
 };
 
 export const create = async (newItem: BaseItem): Promise<Item> => {
-  // const id = new Date().valueOf();
-  // const new_item = {'id': id, ...newItem};
-  // console.log("new_item:", new_item)
   return db_table.insert(newItem);
 };
 
@@ -34,15 +32,8 @@ export const update = async (
   id: number,
   itemUpdate: BaseItem
 ): Promise<Item | null> => {
-  const item = await find(id);
-
-  if (!item) {
-    return null;
-  }
-
-  items[id] = { id, ...itemUpdate };
-
-  return items[id];
+  // FIXME(ramki): implement this service method
+  return { id: 0, ...itemUpdate};
 };
 
 export const remove = async (id: number): Promise<null | void> => {
