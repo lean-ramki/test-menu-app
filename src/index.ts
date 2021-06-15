@@ -17,6 +17,7 @@ dotenv.config();
  * App Variables
  */
 if (!process.env.PORT) {
+  console.error('env.PORT not specified. exiting.');
    process.exit(1);
 }
 
@@ -27,6 +28,11 @@ const app = express();
 /**
  *  App Configuration
  */
+
+ app.get('/', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain')
+  res.send('Hello World!')
+})
 
 app.use(helmet());
 app.use(cors());
